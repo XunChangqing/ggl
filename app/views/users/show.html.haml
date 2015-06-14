@@ -29,5 +29,5 @@
 .center
   -if can? :manage, User
     = link_to t("user.edit"), edit_user_path(@user), class: "btn btn-default"
-    \|
-  = link_to t("user.back"), users_path, class: "btn btn-default"
+    -#\|
+  -#= link_to t("user.back"), users_path, class: "btn btn-default"

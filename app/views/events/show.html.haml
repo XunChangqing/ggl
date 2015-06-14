@@ -97,5 +97,5 @@
 .center
   -if can? :manage, Event
     = link_to t("user.edit"), edit_event_path(@event), class: "btn btn-default"
-    \|
-  = link_to t("user.back"), events_path, class: "btn btn-default"
+    -#\|
+  -#= link_to t("user.back"), events_path, class: "btn btn-default"

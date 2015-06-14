@@ -2,10 +2,6 @@
 
 %h1= t("liveroom.info")
 
-%p#notice= notice
-
-%h1= t("liveroom.info")
-
 .panel.panel-info
   .panel-heading= t('liveroom.info')
   %table.table.table-hover.table-bordered
@@ -26,29 +22,6 @@
 
 .center
   = link_to t("user.edit"), edit_live_room_path(@live_room), class: "btn btn-default"
-  \|
-  = link_to t("user.back"), live_rooms_path, class: "btn btn-default"
-
-.panel.panel-info
-  .panel-heading= t('liveroom.info')
-  %table.table.table-hover.table-bordered
-    -#%thead
-      -#%tr
-        -#%th= t('user.info_name')
-        -#%th= t('user.info_content')
-    %tbody
-      %tr
-        %td= t('liveroom.name')
-        %td= @live_room.name
-      %tr
-        %td= t('liveroom.provider')
-        %td= @live_room.provider
-      %tr
-        %td= t('liveroom.url')
-        %td= @live_room.url
-
-.center
-  = link_to t("user.edit"), edit_live_room_path(@live_room), class: "btn btn-default"
-  \|
-  = link_to t("user.back"), live_rooms_path, class: "btn btn-default"
+  -#\|
+  -#= link_to t("user.back"), live_rooms_path, class: "btn btn-default"
 

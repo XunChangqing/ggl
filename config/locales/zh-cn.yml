@@ -182,6 +182,7 @@ zh-cn:
     orgnization: '主办方'
     playerlist: '选手名单'
     edit: '编辑赛事'
+    index: '赛事列表'
 
   result:
     description: '战报内容'
@@ -197,6 +198,7 @@ zh-cn:
     provider: '平台'
     url: '地址'
     info: '直播间信息'
+    index: '直播间列表'
 
   comment:
     username: '名字'
