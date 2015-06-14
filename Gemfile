@@ -40,6 +40,9 @@ gem 'cocoon'
 gem 'capistrano-rails'
 gem 'capistrano-passenger'
 gem 'capistrano-rvm'
+gem 'capistrano-bundler'
+gem 'capistrano-rails-assets'
+gem 'capistrano-rails-migrations'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
