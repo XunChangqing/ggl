@@ -37,6 +37,9 @@ gem 'haml-rails'
 gem 'cancancan', '~> 1.10'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rvm'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -44,8 +47,6 @@ gem 'cocoon'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'capistrano-rails'
-  gem 'capistrano-passenger'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -56,3 +57,4 @@ group :development, :test do
   gem 'spring'
 end
 
+#gem 'rvm-capistrano'

@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-ssh-add
+#ssh-add
 
 set :application, 'ggl'
 #set :repo_url, 'git@example.com:me/my_repo.git'
