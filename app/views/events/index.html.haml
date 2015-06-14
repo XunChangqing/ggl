@@ -1,0 +1,32 @@
+- provide :title, t("event.index")
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th= t('event.name')
+      %th= t('event.orgnization')
+      %th= t('event.introduction')
+      -#%th= t("user.created_at")
+      -#%th= t("user.updated_at")
+      -if can? :manage, Event
+        %th= t("user.operations")
+
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td
+          =link_to event_path(event) do
+            =event.name
+        %td= event.orgnization
+        %td= event.introduction
+        -#%td= l event.created_at
+        -#%td= l event.updated_at
+        -if can? :manage, Event
+          %td
+            %ul.list-inline
+              %li= link_to t("user.edit"), edit_event_path(event)
+              %li= link_to t("user.destroy"), event, method: :delete, data: {confirm: "Are you sure?"}
+%br
+
+-if can? :manage, Event
+  =link_to t("event.new"), new_event_path, class: "btn btn-lg btn-primary", role: "button"

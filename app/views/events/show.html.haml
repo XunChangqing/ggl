@@ -1,0 +1,101 @@
+%p#notice= notice
+
+%h1= t("event.info")
+
+.panel.panel-info
+  .panel-heading= t('event.info')
+  -#.panel-body
+  %table.table.table-hover.table-bordered
+    -#%thead
+      -#%tr
+        -#%th= t('user.info_name')
+        -#%th= t('user.info_content')
+    %tbody
+      %tr
+        %td= t('event.name')
+        %td= @event.name
+      %tr
+        %td= t('event.orgnization')
+        %td= @event.orgnization
+      %tr
+        %td= t('event.introduction')
+        %td= @event.introduction
+
+.panel.panel-info
+  .panel-heading= t('event.score_board')
+  -#.panel-body
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %th= t('event.player_name')
+        %th= t('event.match_number')
+        %th= t('event.win_match_number')
+        %th= t('event.score')
+    %tbody
+      - @event.players.each do |player|
+        %tr
+          %td= player.name
+          -#%td
+            -#=link_to user_path(player) do
+              -#=player.name
+          -@all_event_matches = player.all_event_matches(@event.id)
+          -@all_event_win_matches = player.all_event_win_matches(@event.id)
+          %td= @all_event_matches.size
+          %td= @all_event_win_matches.size
+          %td= @all_event_win_matches.size*3
+
+.panel.panel-info
+  .panel-heading= t('event.matches')
+  -#.panel-body
+  %table.table.table-hover
+    %thead
+      %tr
+        %th= t('match.name')
+        %th= t('match.event')
+        %th= t('match.players')
+        %th= t('match.time')
+        %th= t('match.result')
+        -if can? :manage, Match
+          %th= t("user.operations")
+  
+    %tbody
+      - @matches.each do |match|
+        %tr
+          %td
+            =link_to match_path(match) do
+              =match.name
+          %td
+            =link_to event_path(match.event) do
+              =match.event.name
+          %td
+            =link_to user_path(match.player1) do
+              =match.player1.name
+            VS 
+            =link_to user_path(match.player2) do
+              =match.player2.name
+          %td= l match.time
+          -if match.result
+            %td
+              -#=link_to match_result_path(match) do
+              =match.result.player1_score
+              \:
+              =match.result.player2_score
+          -else
+            %td= t('match.tobedone')
+          -if can? :manage, Match
+            %td
+              %ul.list-inline
+                %li= link_to t("user.edit"), edit_match_path(match)
+                %li= link_to t("user.destroy"), match, method: :delete, data: {confirm: "Are you sure?"}
+
+-if can? :manage, Match
+  .panel.panel-info
+    .panel-heading= t('event.new_match')
+    .panel-body
+      = render 'events/match_form'
+
+.center
+  -if can? :manage, Event
+    = link_to t("user.edit"), edit_event_path(@event), class: "btn btn-default"
+    \|
+  = link_to t("user.back"), events_path, class: "btn btn-default"

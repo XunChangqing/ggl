@@ -1,0 +1,5 @@
+.nested-fields.project-tag-fields
+  #liveroom_from_list
+    = f.association :live_room, :collection => LiveRoom.all(:order => 'name'), :prompt => 'Choose an existing tag'
+  -#= link_to_add_association 'or create a new live_room', f, :live_room
+  -#= link_to_remove_association "remove live_room", f

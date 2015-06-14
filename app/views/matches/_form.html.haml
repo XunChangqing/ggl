@@ -1,0 +1,53 @@
+= form_for @match do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label t('match.time')
+    -#= f.date_select :time, class: 'form-control'
+    -#= f.time_select :time, :ignore_date => true, class: 'form-control'
+    = f.datetime_select :time, class: 'form-control'
+
+  .form-group
+    = f.label t('match.name')
+    = f.text_field :name, class: 'form-control', placeholder: t('match.name')
+
+  .form-group
+    = f.label t("match.event")
+    =f.collection_select :event_id, Event.all, :id, :name, {}, {class: "form-control"}
+
+  .form-group
+    = f.label t("match.player1")
+    =f.collection_select :player1_id, User.all, :id, :name, {}, {class: "form-control"}
+
+  .form-group
+    = f.label t("match.player2")
+    =f.collection_select :player2_id, User.all, :id, :name, {}, {class: "form-control"}
+
+  .form-group
+    = f.label t('match.liverooms')
+    = f.select :live_room_ids, LiveRoom.all.collect{|x| [x.name, x.id]}, {}, {class: "form-control" , :multiple => true}
+    -#= f.simple_fields_for :match_liveroomships do |match_liveromm|
+      -#= render 'match_liveroom_fields', :f => project_tag
+    -#= link_to_add_association 'add a liveroom', f, :match_liveroomships
+
+  -#=fields_for :result do |result_fields|
+    -#.form-group
+      -#=result_fields.label @match.player1.name
+      -#= result_fields.text_field :player1_score, class: 'form-control', placeholder: t('result.player1_score')
+    -#.form-group
+      -#=result_fields.label @match.player2.name
+      -#= result_fields.text_field :player2_score, class: 'form-control', placeholder: t('result.player2_score')
+    -#.form-group
+      -#=result_fields.label t('result.description')
+      -#= result_fields.text_field :description, class: 'form-control', placeholder: t('result.description')
+    -#.form-group
+      -#=result_fields.label t('result.videourl')
+      -#= result_fields.text_field :videourl, class: 'form-control', placeholder: t('result.videourl')
+
+  .actions
+    = f.submit t('user.save'), class: "btn btn-primary"

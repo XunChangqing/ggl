@@ -1,0 +1,25 @@
+- provide :title, t("liveroom.index")
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th= t('liveroom.name')
+      %th= t('liveroom.provider')
+      %th= t('liveroom.url')
+      %th= t("user.operations")
+
+  %tbody
+    - @live_rooms.each do |live_room|
+      %tr
+        %td= live_room.name
+        %td= live_room.provider
+        %td= live_room.url
+        %td
+          %ul.list-inline
+            %li= link_to t('user.show'), live_room
+            %li= link_to t("user.edit"), edit_live_room_path(live_room)
+            %li= link_to t("user.destroy"), live_room, method: :delete, data: {confirm: "Are you sure?"}
+
+%br
+
+=link_to t("user.new"), new_live_room_path, class: "btn btn-lg btn-primary", role: "button"

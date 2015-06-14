@@ -1,0 +1,22 @@
+= form_for @event do |f|
+  - if @event.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+      %ul
+        - @event.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label t("event.name")
+    = f.text_field :name, class: 'form-control', placeholder: t('event.name')
+  .form-group
+    = f.label t("event.orgnization")
+    = f.text_field :orgnization, class: 'form-control', placeholder: t('event.orgnization')
+  .form-group
+    = f.label t('event.introduction')
+    = f.text_field :introduction, class: 'form-control', placeholder: t('event.introduction')
+  .form-group
+    = f.label t('event.playerlist')
+    = f.select :player_ids, User.all.collect{|x| [x.name, x.id]}, {}, {class: "form-control" , :multiple => true}
+  .actions
+    = f.submit t('user.save'), class: "btn btn-primary"

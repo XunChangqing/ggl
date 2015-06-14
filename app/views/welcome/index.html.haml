@@ -1,0 +1,25 @@
+- provide :title, t("welcome.index")
+
+-for d in 0..13
+  -@tmatches = Match.where(time: Time.now.midnight+d.day..Time.now.midnight+(d+1).day)
+  -if @tmatches.size>0
+    .panel.panel-info
+      .panel-heading
+        =l Time.now+d.day, :format => :only_date
+        =l Time.now+d.day, :format => :weekday
+      -#.panel-body
+      %table.table.table-hover
+        -#.table-bordered
+        %tbody
+          -@tmatches.each do |m|
+            %tr
+              %td{:class => ("red" if m.event.orgnization == "GGL")}
+                = l m.time, :format => :only_time
+                = m.event.name
+                = m.player1.name
+                VS
+                =m.player2.name
+                =link_to match_path(m), :target=> '_blank' do
+                  -m.live_rooms.each do |lr|
+                    =lr.provider
+%br

@@ -1,0 +1,74 @@
+%p#notice= notice
+-#%h2= t("match.info")
+%h2
+  = l @match.time, :format => :only_date
+  = l @match.time, :format => :only_time
+  = @match.name
+  = @match.player1.name
+  VS
+  = @match.player2.name
+
+.panel.panel-info
+  .panel-heading= t('liveroom.info')
+  .panel-body
+    -@match.live_rooms.each do |live_room|
+      %p= link_to live_room.provider, live_room.url, :target => '_blank'
+
+-if @match.result
+  .panel.panel-info
+    .panel-heading= t('match.result')
+    -#.panel-body
+    %table.table.table-hover.table-bordered
+      %tbody
+        %tr
+          %td
+            = t('result.player1_score')
+            = @match.result.player1_score
+        %tr
+          %td
+            = t('result.player2_score')
+            = @match.result.player2_score
+        %tr
+          %td
+            = t('result.videourl')
+            =link_to @match.result.videourl, @match.result.videourl, :target=> '_blank'
+        %tr
+          -#%td= t('result.description')
+          %td= @match.result.description
+
+.panel.panel-info
+  .panel-heading= t('match.comments')
+  -#.panel-body
+  %table.table.table-hover.table-bordered
+    -#%thead
+      -#%tr
+        -#%th= t('comment.username')
+        -#%th= t('comment.content')
+    %tbody
+      -@match.comments.each do |comment|
+        %tr
+          %td
+            =comment.user_name
+            \:::
+            -#@
+            -#= l comment.created_at
+            = comment.content
+
+=form_for [@match, @match.comments.build] do |f|
+  .form-group
+    = f.text_field :content, class: 'form-control', placeholder: t('comment.content')
+  .actions
+    = f.submit t('comment.submit'), class: "btn btn-primary"
+
+.center
+  -if can? :manage, Match
+    -if not @match.result
+      =link_to new_match_result_path(@match), html_options = {class: 'btn btn-default'} do
+        =t('result.new')
+    -else
+      =link_to edit_match_result_path(@match), html_options = {class: 'btn btn-default'} do
+        =t('result.edit')
+    \|
+    = link_to t("user.edit"), edit_match_path(@match), class: "btn btn-default"
+    \|
+  = link_to t("user.back"), matches_path, class: "btn btn-default"

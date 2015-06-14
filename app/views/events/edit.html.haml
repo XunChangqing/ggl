@@ -1,0 +1,9 @@
+- provide :title, t("event.edit")
+%h1= t("event.edit")+" "+@event.name
+
+= render 'form'
+
+.center
+  = link_to t("user.show"), @event, class: "btn btn-default"
+  \|
+  = link_to t("user.back"), events_path, class: "btn btn-default"

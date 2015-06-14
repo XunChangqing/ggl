@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 1
+  player1_score: 1
+  player2_score: 1
+  description: MyText
+  videourl: MyString
+
+two:
+  match_id: 1
+  player1_score: 1
+  player2_score: 1
+  description: MyText
+  videourl: MyString

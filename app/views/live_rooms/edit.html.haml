@@ -1,0 +1,8 @@
+- provide :title, t("liveroom.edit")
+
+= render 'form'
+
+.center
+  = link_to t("user.show"), @live_room, class: "btn btn-default"
+  \|
+  = link_to t("user.back"), live_rooms_path, class: "btn btn-default"

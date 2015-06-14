@@ -1,0 +1,19 @@
+= form_for @live_room do |f|
+  - if @live_room.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@live_room.errors.count, "error")} prohibited this live_room from being saved:"
+      %ul
+        - @live_room.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label t('liveroom.name')
+    = f.text_field :name, class: 'form-control', placeholder: t('liveroom.name')
+  .form-group
+    = f.label t('liveroom.provider')
+    = f.text_field :provider, class: 'form-control', placeholder: t('liveroom.provider')
+  .form-group
+    = f.label t('liveroom.url')
+    = f.text_field :url, class: 'form-control', placeholder: t('liveroom.url')
+  .actions
+    = f.submit t('user.save'), class: "btn btn-primary"
