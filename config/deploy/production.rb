@@ -64,7 +64,7 @@ server '121.40.144.14',
   roles: %w{web db app},
   ssh_options: {
     user: 'mythxcq', # overrides user setting above
-    keys: %w(/home/user_name/.ssh/id_rsa),
+    keys: %w(/Users/xunchangqing/.ssh/id_rsa),
     forward_agent: false,
     auth_methods: %w(publickey password)
     # password: 'please use keys'
