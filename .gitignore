@@ -12,7 +12,7 @@
 /db/*.sqlite3-journal
 
 config/database.yml
-config/secret.yml
+config/secrets.yml
 *.swp
 
 # Ignore all logfiles and tempfiles.
