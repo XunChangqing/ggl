@@ -28,17 +28,17 @@
         = link_to t("common.home"), welcome_index_url, {role: 'tab'}
       -#%li{:class=>("active" if controller_name == "results"), :role=>"presentation"}
         -#= link_to t("common.results"), results_url, {role: 'tab'}
+      -#-if can? :manage, Match
+      %li{:class=>("active" if controller_name == "matches"), :role=>"presentation"}
+        = link_to t("common.matches"), matches_url, {role: 'tab'}
       %li{:class=>("active" if controller_name == "events"), :role=>"presentation"}
         = link_to t("common.events"), events_url, {role: 'tab'}
       -#-if can? :manage, Comment
         -#%li{:class=>("active" if controller_name == "comments"), :role=>"presentation"}
           -#= link_to t("common.comments"), comments_url, {role: 'tab'}
-      -if can? :manage, Match
-        %li{:class=>("active" if controller_name == "matches"), :role=>"presentation"}
-          = link_to t("common.matches"), matches_url, {role: 'tab'}
-      -if can? :manage, User
-        %li{:class=>("active" if controller_name == "users"), :role=>"presentation"}
-          = link_to t("user.list"), users_url, {role: 'tab'}
       -if can? :manage, LiveRoom
         %li{:class=>("active" if controller_name == "live_rooms"), :role=>"presentation"}
           = link_to t("common.live_room"), live_rooms_url, {role: 'tab'}
+      -if can? :manage, User
+        %li{:class=>("active" if controller_name == "users"), :role=>"presentation"}
+          = link_to t("user.list"), users_url, {role: 'tab'}

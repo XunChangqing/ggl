@@ -2,6 +2,8 @@ zh-cn:
   welcome:
     index: 'GGL主页'
   common:
+    root_tips1: '由于赛程经常会调整，所以请及时刷新。'
+    root_tips2: '同一天晚上举行的比赛会连续进行，所以后续比赛的时间不是很精确，敬请注意，谢谢！'
     log_in: "登录"
     log_out: "退出"
     sign_up: "注册"

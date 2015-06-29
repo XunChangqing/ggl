@@ -4,15 +4,16 @@
   = l @match.time, :format => :only_date
   = l @match.time, :format => :only_time
   = @match.name
-  = @match.player1.name
-  VS
-  = @match.player2.name
+  -#= @match.player1.name
+  -#VS
+  -#= @match.player2.name
 
-.panel.panel-info
-  .panel-heading= t('liveroom.info')
-  .panel-body
-    -@match.live_rooms.each do |live_room|
-      %p= link_to live_room.provider, live_room.url, :target => '_blank'
+-if not @match.result
+  .panel.panel-info
+    .panel-heading= t('liveroom.info')
+    .panel-body
+      -@match.live_rooms.each do |live_room|
+        %p= link_to live_room.provider, live_room.url, :target => '_blank'
 
 -if @match.result
   .panel.panel-info
@@ -20,20 +21,19 @@
     -#.panel-body
     %table.table.table-hover.table-bordered
       %tbody
-        %tr
-          %td
-            = t('result.player1_score')
-            = @match.result.player1_score
-        %tr
-          %td
-            = t('result.player2_score')
-            = @match.result.player2_score
+        -#%tr
+          -#%td
+            -#= t('result.player1_score')
+            -#= @match.result.player1_score
+        -#%tr
+          -#%td
+            -#= t('result.player2_score')
+            -#= @match.result.player2_score
         %tr
           %td
             = t('result.videourl')
             =link_to @match.result.videourl, @match.result.videourl, :target=> '_blank'
         %tr
-          -#%td= t('result.description')
           %td= @match.result.description
 
 .panel.panel-info

@@ -1,10 +1,10 @@
 =form_for [@match, @result], :url => match_result_path do |f|
-  .form-group
-    =f.label @match.player1.name
-    = f.text_field :player1_score, class: 'form-control', placeholder: t('result.player1_score')
-  .form-group
-    =f.label @match.player2.name
-    = f.text_field :player2_score, class: 'form-control', placeholder: t('result.player2_score')
+  -#.form-group
+    -#=f.label @match.player1.name
+    -#= f.text_field :player1_score, class: 'form-control', placeholder: t('result.player1_score')
+  -#.form-group
+    -#=f.label @match.player2.name
+    -#= f.text_field :player2_score, class: 'form-control', placeholder: t('result.player2_score')
   .form-group
     =f.label t('result.description')
     = f.text_field :description, class: 'form-control', placeholder: t('result.description')

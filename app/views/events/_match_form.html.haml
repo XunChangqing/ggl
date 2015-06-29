@@ -15,16 +15,17 @@
     = f.text_field :name, class: 'form-control', placeholder: t('match.name')
 
   .form-group
-    = f.label t("match.event")
-    =f.collection_select :event_id, [@event], :id, :name, {}, {class: "form-control"}
+    -#= f.label t("match.event")
+    -#=f.collection_select :event_id, [@event], :id, :name, {}, {class: "form-control"}
+    =f.collection_select :event_id, [@event], :id, :name, {}, {style: "visibility:hidden"}
 
-  .form-group
-    = f.label t("match.player1")
-    =f.collection_select :player1_id, @event.players, :id, :name, {}, {class: "form-control"}
+  -#.form-group
+    -#= f.label t("match.player1")
+    -#=f.collection_select :player1_id, @event.players, :id, :name, {}, {class: "form-control"}
 
-  .form-group
-    = f.label t("match.player2")
-    =f.collection_select :player2_id, @event.players, :id, :name, {}, {class: "form-control"}
+  -#.form-group
+    -#= f.label t("match.player2")
+    -#=f.collection_select :player2_id, @event.players, :id, :name, {}, {class: "form-control"}
 
   .form-group
     = f.label t('match.liverooms')

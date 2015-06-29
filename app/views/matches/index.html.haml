@@ -5,9 +5,9 @@
     %tr
       %th= t('match.name')
       %th= t('match.event')
-      %th= t('match.players')
+      -#%th= t('match.players')
       %th= t('match.time')
-      %th= t('match.result')
+      %th= t('match.status_name')
       -if can? :manage, Match
         %th= t("user.operations")
 
@@ -20,21 +20,22 @@
         %td
           =link_to event_path(match.event) do
             =match.event.name
-        %td
-          =link_to user_path(match.player1) do
-            =match.player1.name
-          VS 
-          =link_to user_path(match.player2) do
-            =match.player2.name
+        -#%td
+          -#=link_to user_path(match.player1) do
+            -#=match.player1.name
+          -#VS 
+          -#=link_to user_path(match.player2) do
+            -#=match.player2.name
         %td= l match.time
         -if match.result
-          %td
-            -#=link_to match_result_path(match) do
-            =match.result.player1_score
-            \:
-            =match.result.player2_score
+          %td= t('match.status.done')
+          -#%td
+            -#-#=link_to match_result_path(match) do
+            -#=match.result.player1_score
+            -#\:
+            -#=match.result.player2_score
         -else
-          %td= t('match.tobedone')
+          %td= t('match.status.tobedone')
         -if can? :manage, Match
           %td
             %ul.list-inline
@@ -42,5 +43,5 @@
               %li= link_to t("user.destroy"), match, method: :delete, data: {confirm: "Are you sure?"}
 %br
 
--#-if can? :manage, Match
-  -#=link_to t("user.new"), new_match_path, class: "btn btn-lg btn-primary", role: "button"
+-if can? :manage, Match
+  =link_to t("user.new"), new_match_path, class: "btn btn-lg btn-primary", role: "button"

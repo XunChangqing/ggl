@@ -1,5 +1,7 @@
 - provide :title, t("welcome.index")
 
+%p= t('common.root_tips1')
+%p= t('common.root_tips2')
 -for d in 0..13
   -@tmatches = Match.where(time: Time.now.midnight+d.day..Time.now.midnight+(d+1).day)
   -if @tmatches.size>0
@@ -16,10 +18,14 @@
               %td{:class => ("red" if m.event.orgnization == "GGL")}
                 = l m.time, :format => :only_time
                 = m.event.name
-                = m.player1.name
-                VS
-                =m.player2.name
+                = m.name
+                -#= m.player1.name
+                -#VS
+                -#=m.player2.name
                 =link_to match_path(m), :target=> '_blank' do
                   -m.live_rooms.each do |lr|
                     =lr.provider
 %br
+
+-#%iframe#zhanqi-frame{"src"=>"http://www.zhanqi.tv/1151058", "width"=>"100%", "height"=>"600px", "scrolling"=>"no", "border"=>"0"}
+-#%iframe#zhanqi-frame{"src"=>"http://www.zhanqi.tv/1151058", "width"=>"100%", "height"=>"600px", "border"=>"0"}
