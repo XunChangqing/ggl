@@ -47,9 +47,9 @@
       -#%tr
         -#%th= t('comment.username')
         -#%th= t('comment.content')
-    %tbody
+    %tbody#comments_list
       -@match.comments.each do |comment|
-        %tr#comments_list
+        %tr
           %td
             =comment.user_name
             \:::
