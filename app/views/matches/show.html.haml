@@ -13,7 +13,7 @@
     .panel-heading= t('liveroom.info')
     .panel-body
       -@match.live_rooms.each do |live_room|
-        %p= link_to live_room.provider, live_room.url, :target => '_blank'
+        %p= link_to live_room.name, live_room.url, :target => '_blank'
 
 -if @match.result
   .panel.panel-info
