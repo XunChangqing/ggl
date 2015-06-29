@@ -1,25 +1,27 @@
 %p#notice= notice
 
-%h1= t("event.info")
+.center-block
+  %h1= @event.name 
+%p= @event.introduction
 
-.panel.panel-info
-  .panel-heading= t('event.info')
-  -#.panel-body
-  %table.table.table-hover.table-bordered
+-#.panel.panel-info
+  -#.panel-heading= t('event.introduction')
+  -#-#.panel-body
+  -#%table.table.table-hover.table-bordered
     -#%thead
       -#%tr
         -#%th= t('user.info_name')
         -#%th= t('user.info_content')
-    %tbody
-      %tr
-        %td= t('event.name')
-        %td= @event.name
-      %tr
-        %td= t('event.orgnization')
-        %td= @event.orgnization
-      %tr
-        %td= t('event.introduction')
-        %td= @event.introduction
+    -#%tbody
+      -#%tr
+        -#%td= t('event.name')
+        -#%td= @event.name
+      -#%tr
+        -#%td= t('event.orgnization')
+        -#%td= @event.orgnization
+      -#%tr
+        -#%td= t('event.introduction')
+        -#%td= @event.introduction
 
 -#.panel.panel-info
   -#.panel-heading= t('event.score_board')

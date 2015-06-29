@@ -50,3 +50,21 @@ footer {
 td.red{
   color: red
 }
+
+/*.center-block{*/
+  /*display: block;*/
+/*}*/
+
+$zhibolink-color: $brand-primary;
+td, 
+li{
+  a{
+    color: $zhibolink-color;
+    text-decoration: none;
+    &:visited{
+      color: $zhibolink-color;
+      text-decoration: none;
+    }
+  }
+}
+

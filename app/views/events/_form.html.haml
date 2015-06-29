@@ -14,7 +14,8 @@
     = f.text_field :orgnization, class: 'form-control', placeholder: t('event.orgnization')
   .form-group
     = f.label t('event.introduction')
-    = f.text_field :introduction, class: 'form-control', placeholder: t('event.introduction')
+    -#= f.text_field :introduction, class: 'form-control', placeholder: t('event.introduction')
+    = f.text_area :introduction, class: 'form-control', placeholder: t('event.introduction'), rows: '3'
   -#.form-group
     -#= f.label t('event.playerlist')
     -#= f.select :player_ids, User.all.collect{|x| [x.name, x.id]}, {}, {class: "form-control" , :multiple => true}

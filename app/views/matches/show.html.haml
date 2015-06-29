@@ -1,26 +1,29 @@
 %p#notice= notice
 -#%h2= t("match.info")
-%h2
-  = l @match.time, :format => :only_date
-  = l @match.time, :format => :only_time
-  = @match.name
-  -#= @match.player1.name
-  -#VS
-  -#= @match.player2.name
+.center
+  %h2
+    = l @match.time, :format => :only_date
+    = l @match.time, :format => :only_time
+    = @match.event.name
+    = @match.name
+    -#= @match.player1.name
+    -#VS
+    -#= @match.player2.name
 
 -if not @match.result
   .panel.panel-info
     .panel-heading= t('liveroom.info')
     .panel-body
       -@match.live_rooms.each do |live_room|
-        %p= link_to live_room.name, live_room.url, :target => '_blank'
+        %p= link_to live_room.name, live_room.url, :target => '_blank', class: 'zhibolink'
 
 -if @match.result
-  .panel.panel-info
-    .panel-heading= t('match.result')
+  %p.lead= @match.result.description
+  -#.panel.panel-info
+    -#.panel-heading= t('match.result')
     -#.panel-body
-    %table.table.table-hover.table-bordered
-      %tbody
+    -#%table.table.table-hover.table-bordered
+      -#%tbody
         -#%tr
           -#%td
             -#= t('result.player1_score')
@@ -29,10 +32,10 @@
           -#%td
             -#= t('result.player2_score')
             -#= @match.result.player2_score
-        %tr
-          %td
-            = t('result.videourl')
-            =link_to @match.result.videourl, @match.result.videourl, :target=> '_blank'
+        -#%tr
+          -#%td
+            -#= t('result.videourl')
+            -#=link_to @match.result.videourl, @match.result.videourl, :target=> '_blank'
         %tr
           %td= @match.result.description
 
@@ -46,7 +49,7 @@
         -#%th= t('comment.content')
     %tbody
       -@match.comments.each do |comment|
-        %tr
+        %tr#comments_list
           %td
             =comment.user_name
             \:::
@@ -54,9 +57,10 @@
             -#= l comment.created_at
             = comment.content
 
-=form_for [@match, @match.comments.build] do |f|
+=form_for [@match, @match.comments.build], remote: true do |f|
   .form-group
-    = f.text_field :content, class: 'form-control', placeholder: t('comment.content')
+    -#= f.text_field :content, class: 'form-control', placeholder: t('comment.content')
+    = f.text_area :content, class: 'form-control', placeholder: t('comment.content'), rows: '4'
   .actions
     = f.submit t('comment.submit'), class: "btn btn-primary"
 

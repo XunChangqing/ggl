@@ -7,9 +7,9 @@
     -#= f.text_field :player2_score, class: 'form-control', placeholder: t('result.player2_score')
   .form-group
     =f.label t('result.description')
-    = f.text_field :description, class: 'form-control', placeholder: t('result.description')
-  .form-group
-    =f.label t('result.videourl')
-    = f.text_field :videourl, class: 'form-control', placeholder: t('result.videourl')
+    = f.text_area :description, class: 'form-control', placeholder: t('result.description'), rows: '4'
+  -#.form-group
+    -#=f.label t('result.videourl')
+    -#= f.text_field :videourl, class: 'form-control', placeholder: t('result.videourl')
   .actions
     = f.submit t('result.save'), class: "btn btn-primary"

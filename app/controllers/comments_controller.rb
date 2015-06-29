@@ -10,8 +10,17 @@ class CommentsController < ApplicationController
     @match = Match.find(params[:match_id])
     @comment = @match.comments.build(comment_params)
     @comment.user_name = request.remote_ip
-    @comment.save
-    redirect_to match_path(@match)
+    #@comment.save
+    respond_to do |format|
+      if @comment.save
+        format.html{ redirect_to match_path(@match)}
+        format.js {}
+        format.json{render json: @comment, status: :created, location: @comment}
+      else
+        format.html { render action: "new"}
+        format.json { render json: @user.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   private

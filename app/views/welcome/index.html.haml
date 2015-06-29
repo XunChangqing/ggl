@@ -22,7 +22,10 @@
                 -#= m.player1.name
                 -#VS
                 -#=m.player2.name
-                =link_to match_path(m), :target=> '_blank' do
+                -#=link_to match_path(m), :target=> '_blank' do
+                  -#-m.live_rooms.each do |lr|
+                    -#=lr.name
+                =link_to match_path(m) do
                   -m.live_rooms.each do |lr|
                     =lr.name
 %br
