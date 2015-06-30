@@ -57,7 +57,8 @@
             -#= l comment.created_at
             = comment.content
 
-=form_for [@match, @match.comments.build], remote: true do |f|
+-#=form_for [@match, @match.comments.build], remote: true do |f|
+=form_for [@match, @match.comments.build], remote: true, html: {"data-type" => "json"} do |f|
   .form-group
     -#= f.text_field :content, class: 'form-control', placeholder: t('comment.content')
     = f.text_area :content, class: 'form-control', placeholder: t('comment.content'), rows: '4'

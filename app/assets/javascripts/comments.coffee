@@ -2,11 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #$(document).on "page.change", ->
-#$(document).ready ->
-  #$("#new_comment").on("ajax:success", (e, data, status, xhr) ->
+$(document).ready ->
+  $("#new_comment").on("ajax:success", (e, data, status, xhr) ->
     #$("#comments_list").append xhr.responseText
-    #alert("yes")
-  #).on("ajax:error", (e, xhr, status, error) ->
+    console.log data.id
+    $("#comments_list").append "<tr><td>#{data.user_name}:::#{data.content}</td><tr>"
+    $("#comment_content").val('')
+  ).on("ajax:error", (e, xhr, status, error) ->
     #$("#new_comment").append xhr.responseText
-    #alert(error)
-  #)
+    alert(error)
+  )

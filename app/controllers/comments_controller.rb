@@ -15,10 +15,10 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html{ redirect_to match_path(@match)}
         format.js {}
-        format.json{render json: @comment, status: :created, location: @comment}
+        format.json{render json: @comment, status: :created}
       else
         format.html { render action: "new"}
-        format.json { render json: @user.errors, status: :unprocessable_entity}
+        format.json { render json: @comment.errors, status: :unprocessable_entity}
       end
     end
   end
