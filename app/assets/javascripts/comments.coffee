@@ -5,7 +5,7 @@
 $(document).on "page:change", ->
   $("#new_comment").on("ajax:success", (e, data, status, xhr) ->
     #$("#comments_list").append xhr.responseText
-    console.log data.id
+    #console.log data.id
     $("#comments_list").append "<tr><td>#{data.user_name}:::#{data.content}</td><tr>"
     $("#comment_content").val('')
   ).on("ajax:error", (e, xhr, status, error) ->
