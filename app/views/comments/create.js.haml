@@ -1,0 +1,7 @@
+-#$("<tr><td>escape_javascript(@comment.user_name)</td></tr>").appendTo("#comments_list")
+-#:plain
+  -#$("#{escape_javascript(%tr %td sdf)}").appendTo("#comments_list");
+-#alert('yes')
+-#%td
+  -#= @comment.user_name
+  -#= @comment.content
