@@ -52,7 +52,6 @@ GEM
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    cancancan (1.10.1)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -72,7 +71,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
-    cocoon (1.2.6)
     codemirror-rails (5.6)
       railties (>= 3.0, < 5)
     coffee-rails (4.1.0)
@@ -262,14 +260,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
   byebug
-  cancancan (~> 1.10)
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
   capistrano-rvm
-  cocoon
   coffee-rails (~> 4.1.0)
   comfortable_mexican_sofa (~> 1.12.0)
   devise
