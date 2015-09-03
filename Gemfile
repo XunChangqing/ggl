@@ -39,10 +39,6 @@ gem 'haml-rails'
 gem 'cancancan', '~> 1.10'
 gem 'bootstrap-sass'
 gem 'cocoon'
-gem 'capistrano-rails'
-gem 'capistrano-passenger'
-gem 'capistrano-rvm'
-gem 'capistrano-bundler'
 #gem 'capistrano-rails-assets'
 #gem 'capistrano-rails-migrations'
 # Use Unicorn as the app server
@@ -60,6 +56,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 
 end
 
