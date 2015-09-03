@@ -30,13 +30,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-gem 'omniauth'
-gem 'omniauth-oauth2'
+#gem 'omniauth'
+#gem 'omniauth-oauth2'
 
 gem 'rails-i18n'
 gem 'haml'
 gem 'haml-rails'
-#gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 1.10'
 #gem 'bootstrap-sass'
 #gem 'cocoon'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
