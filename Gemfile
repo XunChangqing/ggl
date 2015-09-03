@@ -39,6 +39,7 @@ gem 'haml-rails'
 gem 'cancancan', '~> 1.10'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'comfortable_mexican_sofa', '~> 1.12.0'
 #gem 'capistrano-rails-assets'
 #gem 'capistrano-rails-migrations'
 # Use Unicorn as the app server

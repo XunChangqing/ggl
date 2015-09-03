@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  comfy_route :cms_admin, :path => '/admin'
+
+  # Make sure this routeset is defined last
+  comfy_route :cms, :path => '/', :sitemap => false
+
   get 'results/new'
 
   get 'results/create'
@@ -13,7 +18,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  #root 'welcome#index'
   resources :events
   resources :live_rooms
 
